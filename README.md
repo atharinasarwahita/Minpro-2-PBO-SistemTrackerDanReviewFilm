@@ -24,6 +24,7 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
    Setiap kali memasukkan data (angka, teks, rating, konfirmasi Y/N), input dialirkan melalui class ValidasiInput untuk mencegah terjadi error akibat kesalahan tipe data maupun input yang kosong.
 
 4. Eksekusi Fitur Menu Utama (`FilmController.java`)
+
    - (1) Tambah Film: Controller meminta jenis film (Feature Film atau Animated Film), memeriksa keunikan ID Film, mengumpulkan atribut pendukung, lalu menyimpan objek subclass ke dalam ArrayList<Film>.
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/92023216-8e15-40f3-b2ad-e71c2565dae8" />
@@ -55,31 +56,32 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
    - (6) Keluar: Program menghentikan perulangan dan mengakhiri eksekusi.
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/183d3d40-da53-45e9-bfa0-b6f5db80430a" />
-
----
+     
 
 ## 3. Penjelasan Penerapan Encapsulation dan Inheritance  
 
   **A. Encapsulation**  
+  
 Encapsulation diterapkan untuk melindungi data internal kelas dari manipulasi langsung dari luar kelas:  
   - Private Attributes: Seluruh atribut pada kelas model (Film, FeatureFilm, AnimatedFilm, dan Review) diatur menggunakan hak akses private.
   - Getter & Setter: Akses ke atribut dilakukan secara terkontrol melalui method getter dan setter.
   - Domain Validation: Pada kelas Review, method setRating(double rating) menerapkan validasi domain internal yang menolak masukan nilai di luar rentang 1.0 - 5.0 dan mengembalikan nilai boolean untuk memastikan konsistensi data.
 
   **B. Inheritance**  
+  
 Inheritance diterapkan untuk membangun struktur hierarki kelas film guna menghindari duplikasi kode:
-- Superclass: Kelas Film bertindak sebagai abstract/parent class yang menampung atribut umum seperti idFilm, judul, sutradara, tahunRilis, genre, dan durasi.
+- Superclass: Kelas Film bertindak sebagai parent class yang menampung atribut umum seperti idFilm, judul, sutradara, tahunRilis, genre, dan durasi.
   
   <img width="1103" height="259" alt="image" src="https://github.com/user-attachments/assets/e69104f4-0467-486e-9bd7-9aa509077a28" />
 
 - Subclass:
-  - FeatureFilm mewarisi kelas Film dan menambahkan atribut khusus film live-action (pemeranUtama dan karakterLiveAction).
+  - `FeatureFilm` mewarisi kelas Film dan menambahkan atribut khusus film live-action (`pemeranUtama` dan `karakterLiveAction`).
     <img width="1100" height="254" alt="image" src="https://github.com/user-attachments/assets/9202be05-27f0-4791-8253-46965468ffb6" />
     
-  - AnimatedFilm mewarisi kelas Film dan menambahkan atribut khusus animasi (pengisiSuara, karakterAnimasi, dan gayaAnimasi).
+  - `AnimatedFilm` mewarisi kelas Film dan menambahkan atribut khusus animasi (`pengisiSuara`, `karakterAnimasi`, dan `gayaAnimasi`).
     <img width="1102" height="253" alt="image" src="https://github.com/user-attachments/assets/2c684e5c-87be-4bf1-a10a-92c4b04f9dd1" />
     
-- Penggunaan super() pada konstruktor subclass dipanggil untuk menginisialisasi atribut yang dimiliki oleh superclass Film.
+- Penggunaan `super()` pada konstruktor subclass dipanggil untuk menginisialisasi atribut yang dimiliki oleh superclass Film.
 
 ---
 
@@ -106,17 +108,19 @@ src/
 ```
 
 Penjelasan Peran Layer MVC:  
-   1. Model (`package model`): Tempat berkumpulnya kelas entitas, seperti Film, FeatureFilm, AnimatedFilm, dan Review. Package ini bertugas menyimpan struktur data, enkapsulasi atribut, dan method validasi nilai rating secara internal.
-   2. View (`package view`): Di dalam package view terdapat class FilmView. Package ini bertanggung jawab penuh menangani tampilan output (header menu, daftar film dan review). Pada package ini tidak melakukan olah logika data, murni hanya menampilkan data.
-   3. Controller (`package controller`): Di dalam package view terdapat class FilmController. Package ini bertindak sebagai jembatan yang menghubungkan input pengguna dari ValidasiInput dengan manipulasi ArrayList, lalu meneruskan FilmView untuk ditampilkan.
+   1. Model (`package model`): Tempat berkumpulnya kelas entitas, seperti `Film`, `FeatureFilm`, `AnimatedFilm`, dan `Review`. Package ini bertugas menyimpan struktur data, enkapsulasi atribut, dan method validasi nilai rating secara internal.
+   2. View (`package view`): Di dalam package view terdapat `class FilmView`. Package ini bertanggung jawab penuh menangani tampilan output (header menu, daftar film dan review). Pada package ini tidak melakukan olah logika data, murni hanya menampilkan data.
+   3. Controller (`package controller`): Di dalam package view terdapat class FilmController. Package ini bertindak sebagai jembatan yang menghubungkan input pengguna dari `ValidasiInput` dengan manipulasi `ArrayList`, lalu meneruskan `FilmView` untuk ditampilkan.
+
+---
 
   **B. Polymorphism (Overriding)**  
   
-   Method tampilkanInfo() pertama kali dideklarasikan pada superclass Film. Method ini kemudian di-override di dalam kelas FeatureFilm dan AnimatedFilm.  
+   Method `tampilkanInfo()` pertama kali dideklarasikan pada superclass `Film`. Method ini kemudian di-override di dalam kelas `FeatureFilm` dan `AnimatedFilm`.  
    
    <img width="1106" height="111" alt="image" src="https://github.com/user-attachments/assets/09698708-f31c-4797-b10b-d6d0ddc5d99d" />  
      
-   Saat tampilkanInfo() dipanggil dalam perulangan ArrayList<Film> di kelas FilmView, Java secara otomatis mengeksekusi versi tampilkanInfo() milik kelas aslinya (FeatureFilm akan mencetak Cast, sedangkan AnimatedFilm akan mencetak Voice Actor dan Gaya Animasi).  
+   Saat `tampilkanInfo()` dipanggil dalam perulangan `ArrayList<Film>` di kelas `FilmView`, Java secara otomatis mengeksekusi versi `tampilkanInfo()` milik kelas aslinya (`FeatureFilm` akan mencetak Cast, sedangkan `AnimatedFilm` akan mencetak Voice Actor dan Gaya Animasi).  
    
    <img width="1096" height="149" alt="image" src="https://github.com/user-attachments/assets/8b945625-9b71-4fb3-a725-e2e18537e6d7" />
 
