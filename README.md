@@ -25,11 +25,11 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
 
 4. Eksekusi Fitur Menu Utama (`FilmController.java`)
 
-   - (1) Tambah Film: Controller meminta jenis film (Feature Film atau Animated Film), memeriksa keunikan ID Film, mengumpulkan atribut pendukung, lalu menyimpan objek subclass ke dalam ArrayList<Film>.
+   - (1) Tambah Film: Controller meminta jenis film (Feature Film atau Animated Film), memeriksa keunikan ID Film, mengumpulkan atribut pendukung, lalu menyimpan objek subclass ke dalam `ArrayList<Film>`.
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/92023216-8e15-40f3-b2ad-e71c2565dae8" />
 
-   - (2) Tambah Review: Controller memeriksa keberadaan ID Film yang akan di-review, meminta input ID Review unik, memvalidasi rentang rating (1.0 - 5.0), lalu menyimpan objek ke dalam ArrayList<Review>.
+   - (2) Tambah Review: Controller memeriksa keberadaan ID Film yang akan di-review, meminta input ID Review unik, memvalidasi rentang rating (1.0 - 5.0), lalu menyimpan objek ke dalam `ArrayList<Review>`.
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/9d77a4f6-f075-4f6b-b4ec-68f0314c51e3" />
 
@@ -65,7 +65,7 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
 Encapsulation diterapkan untuk melindungi data internal kelas dari manipulasi langsung dari luar kelas:  
   - Private Attributes: Seluruh atribut pada kelas model (Film, FeatureFilm, AnimatedFilm, dan Review) diatur menggunakan hak akses private.
   - Getter & Setter: Akses ke atribut dilakukan secara terkontrol melalui method getter dan setter.
-  - Domain Validation: Pada kelas Review, method setRating(double rating) menerapkan validasi domain internal yang menolak masukan nilai di luar rentang 1.0 - 5.0 dan mengembalikan nilai boolean untuk memastikan konsistensi data.
+  - Validation: Pada kelas Review, method setRating menerapkan validasi internal yang menolak masukan nilai di luar rentang 1.0 - 5.0.
 
   **B. Inheritance**  
   
