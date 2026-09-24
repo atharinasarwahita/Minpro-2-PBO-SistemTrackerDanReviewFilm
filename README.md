@@ -41,7 +41,7 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/aca1110b-e523-42fa-b3ad-58e79e8a3aab" />
 
-     Menampilkan kembali setelah update
+     Menampilkan kembali list film dan review setelah berhasil dihapus setelah berhasil di-update
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/545b17b8-5d5c-4c73-9811-678577b15a93" />
 
@@ -49,7 +49,7 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/b001b49e-cc76-42ba-8b4f-9ad20bafe05b" />
 
-     Menampilkan kembali setelah dihapus
+     Menampilkan kembali list film dan review setelah berhasil dihapus. Output sudah menunjukkan bahwa ID Review 1 sudah terhapus.
      
      <img width="800" alt="image" src="https://github.com/user-attachments/assets/a4578d9e-eccd-48ae-8cfc-bcd2a15b88eb" />
 
