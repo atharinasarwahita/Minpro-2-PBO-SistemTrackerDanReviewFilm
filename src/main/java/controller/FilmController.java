@@ -60,7 +60,7 @@ public void tambahFilm() {
         }
     }
     
-    System.out.println("Yeayy, film kamu berhasil ditambahkan!");
+    System.out.println("\nYeayy, film kamu berhasil ditambahkan!");
     lihatFilm();
 }
 
@@ -75,32 +75,38 @@ public void tambahReview() {
     view.tampilkanTambahReview();
 
     int cariFilm;
-    while (true) {
-        cariFilm = ValidasiInput.inputAngka("Masukkan ID Film yang mau di-review: ");
-        boolean adaFilm = false;
-        for (Film f : daftarFilm) {
-            if (f.getIdFilm() == cariFilm) {
-                adaFilm = true;
+        while (true) {
+            cariFilm = ValidasiInput.inputAngka("Masukkan ID Film yang mau di-review: ");
+            boolean adaFilm = false;
+            for (Film f : daftarFilm) {
+                if (f.getIdFilm() == cariFilm) {
+                    adaFilm = true;
+                    break;
+                }
+            }
+            if (adaFilm) {
+                break;
+            } else {
+                System.out.println("ID film tidak ada di sistem! Silakan coba lagi.");
+            }
+        }
+
+    int idReview;
+        while (true) {
+            idReview = ValidasiInput.inputAngka("Masukkan ID Review: ");
+            boolean duplikat = false;
+            for (Review r : daftarReview) {
+                if (r.getIdReview() == idReview) {
+                    duplikat = true;
+                    break;
+                }
+            }
+            if (duplikat) {
+                System.out.println("ID Sudah Digunakan! Silakan gunakan ID lain.");
+            } else {
                 break;
             }
         }
-        if (adaFilm) {
-            break;
-        } else {
-            System.out.println("ID film tidak ada di sistem! Silakan coba lagi.");
-        }
-    }
-
-        int idReview;
-        while (true) {
-            idReview = ValidasiInput.inputAngka("Masukkan ID Review: ");
-            for (Review r : daftarReview) {
-
-                if (r.getIdReview() == idReview) {
-                    System.out.println("ID Sudah Digunakan! Silakan gunakan ID lain.");
-                    return;
-                }
-            }
 
         double rating;
         while (true) {
@@ -118,7 +124,6 @@ public void tambahReview() {
         System.out.println("Yeayy, review berhasil ditambahkan!");
         lihatFilm();
     }
-}
 
 //READ (menampilkan film & review dari package view)
 public void lihatFilm() {
