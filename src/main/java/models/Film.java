@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 public class Film {
@@ -12,7 +8,6 @@ public class Film {
     private String genre;
     private int durasi;
     
-    //Constructor
     public Film(int idFilm, String judul, String sutradara, int tahunRilis, String genre, int durasi) {
         this.idFilm = idFilm;
         this.judul = judul;
@@ -22,13 +17,8 @@ public class Film {
         this.durasi = durasi;
     }
     
-    //Getter & Setter
     public int getIdFilm() {
         return idFilm;
-    }
-    
-    public String getJudul() {
-        return judul;
     }
     
     public void setJudul(String judul) {
@@ -39,20 +29,12 @@ public class Film {
         return sutradara;
     }
     
-    public void setStradara(String sutradara) {
+    public void setSutradara(String sutradara) {
         this.sutradara = sutradara;
-    }
-    
-    public int getTahunRilis() {
-        return tahunRilis;
     }
     
     public void setTahunRilis(int tahunRilis) {
         this.tahunRilis = tahunRilis;
-    }
-    
-    public String getGenre() {
-        return genre;
     }
     
     public void setGenre(String genre) {
@@ -63,7 +45,9 @@ public class Film {
         return durasi;
     }
     
-    public void setDurasi(int durasi) {
-        this.durasi = durasi;
+    public void tampilkanInfo() {
+        System.out.println(" [" + idFilm + "] " + judul + " (" + tahunRilis + ")");
+        System.out.println("     Sutradara : " + sutradara);
+        System.out.println("     Genre     : " + genre + " | Durasi: " + durasi + " menit");
     }
 }

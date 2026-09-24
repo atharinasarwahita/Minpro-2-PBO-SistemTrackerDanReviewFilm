@@ -1,39 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package models;
 
 public class Review {
     private int idReview;
+    private int idFilm;
     private double rating;
     private String ulasan;
     
     //Constructor
-    public Review(int idReview, String ulasan, double rating) {
+    public Review(int idReview, int idFilm, double rating, String ulasan) {
         this.idReview = idReview;
+        this.idFilm = idFilm;
+        setRating(rating);
         this.ulasan = ulasan;
-        this.rating = rating;
     }
         
-    //Getter & Setter
     public int getIdReview() {
         return idReview; 
     }
     
+    public int getIdFilm() {
+        return idFilm;
+    }
+    
     public String getUlasan() {
         return ulasan; 
-    }
-
-    public void setUlasan(String ulasan) {
-        this.ulasan = ulasan;
     }
     
     public double getRating() {
         return rating; 
     }
     
-    public void setRating(double rating) {
+    public boolean setRating(double rating) {
+    if (rating >= 1.0 && rating <= 5.0) {
         this.rating = rating;
+        return true;
+    } else {
+        System.out.println("Gagal! Rating harus antara 1.0 sampai 5.0!");
+        return false;
+      }
+    }
+    
+    public void setUlasan(String ulasan) {
+        this.ulasan = ulasan;
     }
 }
