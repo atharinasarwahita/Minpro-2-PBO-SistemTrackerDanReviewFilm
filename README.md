@@ -60,20 +60,25 @@ Sistem ini mengimplementasikan dua nilai tambah utama dalam standar pemrograman 
 ```
 src/
 ├── controller/
-│   ├── FilmController.java   <-- Mengatur logika bisnis & kontrol data
-│   └── ValidasiInput.java    <-- Helper handling input & validasi
+│   ├── FilmController.java  
+│   └── ValidasiInput.java 
 ├── main/
-│   └── Main.java             <-- Entry point & perulangan menu utama
+│   └── Main.java        
 ├── models/
-│   ├── Film.java             <-- Superclass model
-│   ├── FeatureFilm.java      <-- Subclass model (Live-Action)
-│   ├── AnimatedFilm.java     <-- Subclass model (Animasi)
-│   └── Review.java           <-- Model ulasan & rating
+│   ├── Film.java         
+│   ├── FeatureFilm.java   
+│   ├── AnimatedFilm.java  
+│   └── Review.java      
 └── view/
-    └── FilmView.java         <-- Menangani seluruh pencetakan CLI/terminal
+    └── FilmView.java      
 ```
 
 Penjelasan Peran Layer MVC:  
-1. Model (package models): Tempat berkumpulnya kelas entitas (Film, FeatureFilm, AnimatedFilm, Review). Murni bertugas menyimpan struktur data, enkapsulasi atribut, dan validasi nilai rating internal.
-2. View (package view): Diwakili oleh kelas FilmView. Bertanggung jawab penuh menangani seluruh tampilan output CLI (header menu, daftar katalog, pesan sukses/gagal). Layer ini tidak melakukan olah logika data.
-3. Controller (package controller): Diwakili oleh kelas FilmController. Bertindak sebagai jembatan yang menghubungkan input pengguna dari ValidasiInput dengan manipulasi ArrayList di dalam memori, lalu meneruskannya ke FilmView untuk disajikan ke layar terminal. 
+1. Model (`package model`): Tempat berkumpulnya kelas entitas, seperti Film, FeatureFilm, AnimatedFilm, dan Review. Package ini bertugas menyimpan struktur data, enkapsulasi atribut, dan method validasi nilai rating secara internal.
+2. View (`package view`): Di dalam package view terdapat class FilmView. Package ini bertanggung jawab penuh menangani tampilan output (header menu, daftar film dan review). Pada package ini tidak melakukan olah logika data, murni hanya menampilkan data.
+3. Controller (`package controller`): Di dalam package view terdapat class FilmController. Package ini bertindak sebagai jembatan yang menghubungkan input pengguna dari ValidasiInput dengan manipulasi ArrayList, lalu meneruskan FilmView untuk ditampilkan.
+
+  **B. Polymorphism (Overriding)**  
+     Method tampilkanInfo() pertama kali dideklarasikan pada superclass Film. Method ini kemudian di-override di dalam kelas FeatureFilm dan AnimatedFilm.
+     
+   Saat tampilkanInfo() dipanggil dalam perulangan ArrayList<Film> di kelas FilmView, Java secara otomatis mengeksekusi versi tampilkanInfo() milik kelas aslinya (FeatureFilm akan mencetak Cast, sedangkan AnimatedFilm akan mencetak Voice Actor dan Gaya Animasi).
