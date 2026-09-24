@@ -25,12 +25,37 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
 
 4. Eksekusi Fitur Menu Utama (`FilmController.java`)
    - (1) Tambah Film: Controller meminta jenis film (Feature Film atau Animated Film), memeriksa keunikan ID Film, mengumpulkan atribut pendukung, lalu menyimpan objek subclass ke dalam ArrayList<Film>.
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/92023216-8e15-40f3-b2ad-e71c2565dae8" />
+
    - (2) Tambah Review: Controller memeriksa keberadaan ID Film yang akan di-review, meminta input ID Review unik, memvalidasi rentang rating (1.0 - 5.0), lalu menyimpan objek ke dalam ArrayList<Review>.
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/9d77a4f6-f075-4f6b-b4ec-68f0314c51e3" />
+
    - (3) Lihat Film & Review: Controller memanggil FilmView untuk menampilkan seluruh katalog film beserta ulasan yang relevan berdasarkan kecocokan idFilm.
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/a1b4f807-624d-43d2-9de3-7f34437885bb" />
+
    - (4) Update Review: Controller mencari objek ulasan berdasarkan idReview, lalu memperbarui nilai rating atau teks ulasan sesuai pilihan pengguna.
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/aca1110b-e523-42fa-b3ad-58e79e8a3aab" />
+
+     Menampilkan kembali setelah update
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/545b17b8-5d5c-4c73-9811-678577b15a93" />
+
    - (5) Hapus Review: Controller meminta konfirmasi (Y/N) via ValidasiInput. Jika dikonfirmasi, ulasan dihapus dari ArrayList<Review>.
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/b001b49e-cc76-42ba-8b4f-9ad20bafe05b" />
+
+     Menampilkan kembali setelah dihapus
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/a4578d9e-eccd-48ae-8cfc-bcd2a15b88eb" />
+
    - (6) Keluar: Program menghentikan perulangan dan mengakhiri eksekusi.
-  
+     
+     <img width="800" alt="image" src="https://github.com/user-attachments/assets/183d3d40-da53-45e9-bfa0-b6f5db80430a" />
+
 ---
 
 ## 3. Penjelasan Penerapan Encapsulation dan Inheritance  
@@ -39,7 +64,7 @@ Program ini berjalan melalui terminal dengan alur sebagai berikut:
 Encapsulation diterapkan untuk melindungi data internal kelas dari manipulasi langsung dari luar kelas:  
   - Private Attributes: Seluruh atribut pada kelas model (Film, FeatureFilm, AnimatedFilm, dan Review) diatur menggunakan hak akses private.
   - Getter & Setter: Akses ke atribut dilakukan secara terkontrol melalui method getter dan setter.
-  - Domain Validation: Pada kelas Review, method setRating(double rating) menerapkan validasi domain internal yang menolak masukan nilai di luar rentang $1.0 - 5.0$ dan mengembalikan nilai boolean untuk memastikan konsistensi data.
+  - Domain Validation: Pada kelas Review, method setRating(double rating) menerapkan validasi domain internal yang menolak masukan nilai di luar rentang 1.0 - 5.0 dan mengembalikan nilai boolean untuk memastikan konsistensi data.
 
   **B. Inheritance**  
 Inheritance diterapkan untuk membangun struktur hierarki kelas film guna menghindari duplikasi kode:
